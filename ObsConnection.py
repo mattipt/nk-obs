@@ -36,7 +36,7 @@ class ObsConnection:
     def set_volume(self, name, val):
         self.connection.call(requests.SetVolume(name, val))
 
-    def set_sync_offset(self, name, val):
+    def set_sync_offset(self, name, val, verbose = True):
         """
         Set the sync offset for a track.
         """
@@ -44,8 +44,13 @@ class ObsConnection:
         # Range is [-sync_offset_range, sync_offset_range]
         sync_offset_range = 1000 * 1e6
         # The input value is between 0 and 1; scale appropriately
-        offset_value = int((val - 0.5) * 2 * sync_offset_range)
-        # print('set_sync_offset {} => {}'.format(name, offset_value))
+        offset_value = (val - 0.5) * 2 * sync_offset_range
+        # Add a little software 'dead band' in the middle of the order of one frame.
+        # This will also eliminate the lack of a zero for controllers with an even number of steps.
+        offset_value = 0 if abs(offset_value) < (25 * 1e6) else int(offset_value)
+        # The OBS interface does not appear to update the syn offset value in real time.
+        # To make adjustment easier, print it on the screen
+        print('Sync offste for channel {}: {}'.format(name, offset_value / 1e6))
         self.connection.call(requests.SetSyncOffset(name, offset_value))
         
     def set_stream(self, val = None):
