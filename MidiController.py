@@ -149,7 +149,8 @@ class Controller:
                 else:  # Button
                     if 'target' in ctl.keys():
                         ctl['action'](ctl['target'])
-                    ctl['action']()
+                    else:
+                        ctl['action']()
 
         self.event_queue.clear()
 
