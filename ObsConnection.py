@@ -50,7 +50,7 @@ class ObsConnection:
         offset_value = 0 if abs(offset_value) < (25 * 1e6) else int(offset_value)
         # The OBS interface does not appear to update the syn offset value in real time.
         # To make adjustment easier, print it on the screen
-        print('Sync offste for channel {}: {}'.format(name, offset_value / 1e6))
+        print('Sync offset for channel {}: {}'.format(name, offset_value / 1e6))
         self.connection.call(requests.SetSyncOffset(name, offset_value))
         
     def set_stream(self, val = None):
