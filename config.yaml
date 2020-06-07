@@ -1,0 +1,159 @@
+name: nanoKONTROL2
+
+# Assign OBS source names to controller 'channels'
+sources:
+  1: Desktop Audio
+  2: Mic/Aux
+  3: Turtle video
+  4: NDI™ Source
+  5: 
+  6: 
+  7: 
+  8: 
+
+faders:
+  - name: fader_1
+    control: 0
+    action: volume
+    source: 1
+  - name: fader_2
+    control: 1 
+    action: volume
+    source: 2
+  - name: fader_3
+    control: 2 
+    action: volume
+    source: 3
+  - name: fader_4
+    control: 3
+    action: volume
+    source: 4
+  - name: fader_5
+    control: 4
+    action: volume
+    source: 5
+  - name: fader_6
+    control: 5
+    action: volume
+    source: 6
+  - name: fader_7
+    control: 6
+    action: volume
+    source: 7
+  - name: fader_8
+    control: 7
+    action: volume
+    source: 8
+  - name: knob_1
+    control: 16
+  - name: knob_2
+    control: 17
+  - name: knob_3
+    control: 18
+  - name: knob_4
+    control: 19
+  - name: knob_5
+    control: 20
+  - name: knob_6
+    control: 21
+  - name: knob_7
+    control: 22
+  - name: knob_8
+    control: 23
+
+buttons:
+  - name: play
+    control: 41
+    action: stream
+    led: stream
+  - name: rec
+    control: 45
+    action: record
+    led: record
+  - name: s_1
+    control: 32
+  - name: s_2
+    control: 33
+  - name: s_3
+    control: 34
+  - name: s_4
+    control: 35
+  - name: s_5
+    control: 36
+  - name: s_6
+    control: 37
+  - name: s_7
+    control: 38
+  - name: s_8
+    control: 39
+  - name: m_1
+    control: 48
+    action: monitor
+    source: 1
+  - name: m_2
+    control: 49
+    action: monitor
+    source: 2
+  - name: m_3
+    control: 50
+    action: monitor
+    source: 3
+  - name: m_4
+    control: 51
+    action: monitor
+    source: 4
+  - name: m_5
+    control: 52
+    action: monitor
+    source: 5
+  - name: m_6
+    control: 53
+    action: monitor
+    source: 6
+  - name: m_7
+    control: 54
+    action: monitor
+    source: 7
+  - name: m_8
+    control: 55
+    action: monitor
+    source: 8
+  - name: r_1
+    control: 64
+  - name: r_2
+    control: 65
+  - name: r_3
+    control: 66
+  - name: r_4
+    control: 67
+  - name: r_5
+    control: 68
+  - name: r_6
+    control: 69
+  - name: r_7
+    control: 70
+  - name: r_8
+    control: 71
+  - name: stop
+    control: 42
+  - name: rew
+    control: 43
+  - name: ff
+    control: 44
+  - name: cycle
+    control: 46
+    action: transition
+  - name: trk_back
+    control: 58
+    action: prev_scene
+  - name: trk_fwd
+    control: 59
+    action: next_scene
+  - name: marker_set
+    control: 60
+  - name: marker_back
+    control: 61
+  - name: marker_fwd
+    control: 62
+
+toggles: []
