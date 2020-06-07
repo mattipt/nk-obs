@@ -36,6 +36,18 @@ class ObsConnection:
     def set_volume(self, name, val):
         self.connection.call(requests.SetVolume(name, val))
 
+    def set_sync_offset(self, name, val):
+        """
+        Set the sync offset for a track.
+        """
+        # Select desired adjustment range in nanoseconds.
+        # Range is [-sync_offset_range, sync_offset_range]
+        sync_offset_range = 1000 * 1e6
+        # The input value is between 0 and 1; scale appropriately
+        offset_value = int((val - 0.5) * 2 * sync_offset_range)
+        # print('set_sync_offset {} => {}'.format(name, offset_value))
+        self.connection.call(requests.SetSyncOffset(name, offset_value))
+        
     def set_stream(self, val = None):
         if val is None:
             val = not self.connection.call(requests.GetStreamingStatus()).getStreaming()

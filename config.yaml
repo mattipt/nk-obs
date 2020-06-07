@@ -2,10 +2,10 @@ name: nanoKONTROL2
 
 # Assign OBS source names to controller 'channels'
 sources:
-  1: Desktop Audio
-  2: Mic/Aux
-  3: Turtle video
-  4: NDI™ Source
+  1: Source 1
+  2: Source 2
+  3: Source 3
+  4: 
   5: 
   6: 
   7: 
@@ -46,20 +46,36 @@ faders:
     source: 8
   - name: knob_1
     control: 16
+    action: sync
+    source: 1
   - name: knob_2
     control: 17
+    action: sync
+    source: 2
   - name: knob_3
     control: 18
+    action: sync
+    source: 3
   - name: knob_4
     control: 19
+    action: sync
+    source: 4
   - name: knob_5
     control: 20
+    action: sync
+    source: 5
   - name: knob_6
     control: 21
+    action: sync
+    source: 6
   - name: knob_7
     control: 22
+    action: sync
+    source: 7
   - name: knob_8
     control: 23
+    action: sync
+    source: 8
 
 buttons:
   - name: play

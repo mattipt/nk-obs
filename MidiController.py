@@ -38,8 +38,13 @@ class Controller:
                                                      'min_value': fader.get('min_value', 0),
                                                      'max_value': fader.get('max_value', 127)}
         if 'action' in fader.keys():
-            if fader['action'] == 'volume':
-                control['action'] = self.obs_connection.set_volume
+            action_map = {
+                'volume': self.obs_connection.set_volume,
+                'sync': self.obs_connection.set_sync_offset
+            }
+            if fader['action'] in action_map.keys():
+                control['action'] = action_map[fader['action']]
+            if 'source' in fader.keys():
                 control['target'] = self.sources[fader['source']]
 
     # Buttons are momentary and send an 'on' value when pressed and 'off' value when released
